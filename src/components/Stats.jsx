@@ -1,7 +1,4 @@
-const PostLengthLimit = {
-  FACEBOOK: 2200, // Facebook post length limit
-  INSTAGRAM: 280, // Instagram post length limit
-};
+import PostLengthLimit from "../lib/constants";
 
 export default function Stats({ state }) {
   const { characters } = state;
@@ -28,7 +25,13 @@ export default function Stats({ state }) {
 function StatTag({ stats, label }) {
   return (
     <div className="flex flex-col justify-center items-center border border-gray-700 text-gray-400">
-      <div className="text-blue-500 text-2xl font-bold">{stats}</div>
+      <div
+        className={`text-2xl font-bold ${
+          stats < 0 ? "text-red-600" : "text-blue-500"
+        } "`}
+      >
+        {stats}
+      </div>
       <div>{label}</div>
     </div>
   );
