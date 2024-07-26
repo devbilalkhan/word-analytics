@@ -1,12 +1,8 @@
 import { useState } from "react";
 import Warning from "./Warning";
 
-export default function TextArea() {
-  const [text, setText] = useState("");
+export default function TextArea({ text, setText }) {
   const [message, setMessage] = useState("");
-
-  const charactersLength = text.length;
-
   const handleChange = (e) => {
     const pattern = /[@#$]/;
     let newText = e.target.value;
